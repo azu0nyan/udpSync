@@ -7,7 +7,6 @@ class Server(val buffSize: Int = 256,
             ) extends Runnable {
   val socket = new DatagramSocket(port)
 
-
   var running: Boolean = true
 
   def run(): Unit = {
