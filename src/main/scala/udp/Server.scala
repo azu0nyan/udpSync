@@ -19,7 +19,8 @@ class Server(val buffSize: Int = 256,
       val addr = packet.getAddress
       val port = packet.getPort
       val received = packet.getData
-      println(new String(s"${addr.getHostAddress}:$port ${new String(received)}" ))
+
+      println(new String(s"${addr.getHostAddress}:$port ${new String(received, 0, packet.getLength)}" ))
 
       socket.send(new DatagramPacket("OK".getBytes, "OK".getBytes.length, addr, port))
     }
